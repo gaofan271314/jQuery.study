@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移动事件和获取索引值</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        li{
+            background: yellow;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+<ul>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+    <li>275501314</li>
+</ul>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //mouseover和mouseout事件会影响子控件,也就是说在父标签中触发的事件,子标签也会触发.开发中一般不会用
+//        $('.box1').mouseover(function(){
+//            console.log('1234');
+//        });
+//        $('.box2').mouseout(function(){
+//            console.log('1234');
+//        });
+        //因此,对于鼠标移入移除事件一般用mouseenter和mouseleave事件,父标签不会影响子标签
+        $('box1').mouseenter(function(){
+            console.log('12345')
+        });
+        $('box2').mouseleave(function(){
+            console.log('12345')
+        });
+
+
+        //获取事件对应的索引值
+        $('li').click(function(){
+            var index= $(this).index();
+            alert(index);
+        })
+    })
+</script>
+</body>
+</html>

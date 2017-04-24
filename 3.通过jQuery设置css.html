@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过jQuery设置css</title>
+</head>
+<body>
+<div></div>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+//        $('div').css('width',100);
+//        $('div').css('height',100);
+//        $('div').css('background','red');
+
+        //当调用的对象是同一对象对象时,使用字典抽取函数
+        $('div').css({width:100,height:100,background:'red'});
+    })
+</script>
+</body>
+</html>

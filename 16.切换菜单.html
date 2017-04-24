@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+        .nav{
+            width: 800px;
+            height: 50px;
+            margin: 50px auto;
+            background: #ccc;
+        }
+        .nav .first>li{
+            float: left;
+            width: 100px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .nav .sec{
+            display: none;
+        }
+        .sec li{
+            background: #666;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="nav">
+
+    <ul class='first'>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+        <li>第一级菜单
+            <ul class='sec'>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+                <li>第二级菜单</li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        $('.first>li').hover(function(){
+            /*stop()写在动画函数前,用来设置开始此次动画前先停止上一次动画*/
+//            $(this).children().stop().slideDown(500)
+//        },function(){
+//            $(this).children().stop().slideUp(500);
+
+            /*由于两句代码相似度极高,可以抽取*/
+            $(this).children().stop().slideToggle(500);//???hover本身的机制,相同的代码可以读取.
+        })
+    })
+</script>
+
+
+</body>
+</html>

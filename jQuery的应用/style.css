@@ -1,0 +1,90 @@
+.banner{
+    width: 900px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+}
+.nav{
+    width: 100%;
+    height: 75px;
+}
+.nav .nav_content{
+    width: 900px;
+    height: 45px;
+    margin: 0 auto;
+}
+.nav .nav_left{
+    float: left;
+    width: 130px;
+    height: 45px;
+    opacity: 0;
+}
+.nav .nav_left img{
+    width: 100%;
+    height: 100%;
+
+}
+.nav .nav_right{
+    float: left;
+    margin-left: 5px;
+}
+.nav .nav_right input:first-child{
+    width: 520px;
+    height: 45px;
+    border: 1px solid #ccc;
+}
+.nav .nav_right input:last-child{
+    width: 100px;
+    height: 45px;
+    background: orangered;
+    margin-left: -5px;
+}
+.content{
+    width: 900px;
+    height: 1400px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    border-bottom: none;
+}
+.content .header{
+    height: 45px;
+    border-bottom: 1px solid #ccc;
+}
+.content .header ul li{
+    float: left;
+    width: 80px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.content .header ul .cur{
+    background: #666;
+    color: white;
+}
+/*思想是重点一个标签绑定多个类名,多个标签相同类名*/
+.content .body{
+    display: none;
+}
+.content .active{
+    display: block;
+}
+.content .body ul li{
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content .body ul li .detail,.del{
+    float: right;
+    margin-right: 10px;
+    color: darkblue;
+}
+.rocket{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: none;
+}
+
+

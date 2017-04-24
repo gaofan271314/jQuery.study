@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        body{
+            background: #000;
+        }
+        .box{
+            width: 600px;
+            height: 200px;
+            border: 1px solid orangered;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .box ul{
+            width: 9999px;
+            position: relative;
+        }
+        .box ul li{
+            float: left;
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+
+    <ul>
+        <li><img src="images/girl/01.jpg" alt=""></li>
+        <li><img src="images/girl/02.jpg" alt=""></li>
+        <li><img src="images/girl/03.jpg" alt=""></li>
+        <li><img src="images/girl/04.jpg" alt=""></li>
+        <li><img src="images/girl/01.jpg" alt=""></li>
+        <li><img src="images/girl/02.jpg" alt=""></li>
+    </ul>
+
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        /*让图片先动起来*/
+        var myLeft= 0;
+        var timer= setInterval(auto_play,10);
+        function auto_play(){
+            myLeft += 4;
+            if(myLeft >= 1200){
+                myLeft= 0;
+            }
+            $('ul').css({left:-myLeft})
+        }
+        $('li').hover(function(){
+            $(this).stop().fadeTo(100,1).siblings().stop().fadeTo(100,0.3);
+            clearInterval(timer);
+        },function(){
+            $('li').stop().fadeTo(100,1);
+            timer= setInterval(auto_play,10);
+        })
+    })
+</script>
+
+</body>
+</html>

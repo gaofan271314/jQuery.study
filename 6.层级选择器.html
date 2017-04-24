@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级选择器</title>
+</head>
+<body>
+<button>$('p+div')选择段落后第一个div</button><br>
+<button>$('p~div')选择p后面的所有div兄弟元素</button><br>
+<button>$('.ulItem>li')选择Ul当中子元素li(所有的子元素)</button><br>
+<button>$('.ulItem li')选择Ul当中所有的li(所有的后代元素)</button><br><br>
+
+<div>我是一个div</div>
+<p>段落标签</p>
+<p>段落标签</p>
+<p>段落标签</p>
+<div class="left">我是一个div</div>
+<div class="left">我是一个div</div>
+<div id="box">我是一个div</div>
+<h1>标题1标签</h1>
+<h2>标题2标签</h2>
+<h3>标题3标签</h3>
+<ul class="ulItem">
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项d</li>
+    <ul>
+        <li>列表项</li>
+        <li>列表项</li>
+        <li>列表项</li>
+    </ul>
+</ul>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //获取某个标签后面的第一个指定的标签
+        $('button:eq(0)').click(function(){
+            $('p+div').css('background','red');
+        });
+        //获取某个标签后面的所有的指定的标签
+        $('button:eq(1)').click(function(){
+            $('p~div').css('background','red');
+        });
+        //获取某个标签的子元素标签
+        $('button:eq(2)').click(function(){
+            $('.ulItem>li').css('background','red');
+        });
+        //获取某个标签的所有后代标签
+        $('button:eq(3)').click(function(){
+            $('.ulItem li').css('background','red');
+        });
+    })
+</script>
+</body>
+</html>

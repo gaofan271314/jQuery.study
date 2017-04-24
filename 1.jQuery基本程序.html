@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery基本程序</title>
+</head>
+<body>
+<div id="box">hello to myself</div>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+//    window.onload= function(){
+//
+//    }
+    //jQuery的主要符号$
+    //jQuery的加载方式:通过$获取document,当document准备好后,就实现加载
+//    $(document).ready(function(){
+//        alert('我是第一个jQuery程序');
+//    })
+    //在实际开发中 ,一般简写
+    $(function(){
+        alert('我是第一个jQuery程序')
+    });
+
+    //js加载后面加载的一般会把前面加载的覆盖掉,jQuery加载几次,执行几次.
+    //js加载是等整个页面加载出来后,才会调用jQuery会等节点加载出来后就去调用,因此jQuery加载会比js加载速度快
+    window.onload= function(){
+        alert('1');
+    };
+    window.onload= function(){
+        alert('2');
+    };
+    $(function(){
+        alert('3');
+    });
+    $(function(){
+        alert('4');
+    });
+
+    //js对象和jQuery对象的转化
+//    var js_div= document.getElementById('box');
+    //通过jQuery获取对象
+    var js_div= $('div');
+    //转化js对象为jQuery对象,通过$
+    alert($(js_div).html());
+    //转化jQuery对象为js对象,通过[0],或者.get(0)
+    alert(js_div[0].innerHTML)
+
+</script>
+</body>
+</html>

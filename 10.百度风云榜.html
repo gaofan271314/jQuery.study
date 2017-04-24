@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度风云榜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+        .box{
+            width: 320px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+        }
+        h4{
+            line-height: 30px;
+            font-size: 18px;
+            color: #F23D7C;
+            padding-left:10px;
+        }
+        .box ul li{
+            border-top: 1px dashed #ccc;
+            line-height: 30px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        .box ul li span:first-of-type{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            background: #ccc;
+            color: #fff;
+            text-align: center;
+            margin-right: 10px;
+        }
+        .box ul li img {
+            width: 80px;
+            height: 110px;
+            float: left;
+            margin-right: 10px;
+        }
+        .box ul .content p{
+            float: left;
+            width: 210px;
+            line-height: 18px;
+            font-size: 12px;
+        }
+        .box ul li .content{
+            overflow: hidden;
+            display: none;
+            margin-bottom: 10px;
+        }
+        .box ul li:nth-child(-n+3) span:first-of-type{
+            background: #F23D7C;
+        }
+        .box ul .cur .content{
+            display: block;
+        }
+
+    </style>       
+    
+</head>
+<body>
+<div class="box">
+    <h4>电影排行榜</h4>
+    <ul>
+        <li class="cur">
+            <span>1</span><span>间谍同盟</span>
+            <div class="content">
+                <img src="images/film/01.jpg " alt="">
+                <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+            </div>
+        </li>
+        <li><span>2</span><span>神奇动物在哪里</span>
+            <div class="content">
+                <img src="images/film/02.jpg" alt="">
+                <p>《神奇动物在哪里》是由美国华纳兄弟影片公司、英国盛日影业公司联合出品的奇幻冒险电影，由英国导演大卫·叶茨执导，埃迪·雷德梅恩、凯瑟琳·沃特斯顿、艾莉森·苏朵儿、丹·福格勒、柯林·法瑞…</p>
+            </div>
+        </li>
+        <li><span>3</span><span>血战钢锯岭</span>
+            <div class="content">
+                <img src="images/film/03.jpg" alt="">
+                <p>《血战钢锯岭》是熙颐影业出品的一部战争历史片，由梅尔·吉布森执导，安德鲁·加菲尔德、卢克·布雷西、萨姆·沃辛顿、文斯·沃恩、泰莉莎·帕尔墨和雨果·维文主演。影片改编自二战上等兵军医戴…</p>
+            </div>
+        </li>
+        <li><span>4</span><span>七月与安生</span>
+            <div class="content">
+                <img src="images/film/04.jpg" alt="">
+                <p>《七月与安生》是2016年由极客影业、嘉映影业、阿里巴巴影业集团有限公司联合出品，陈可辛监制，曾国祥执导，周冬雨、马思纯主演的青春爱情电影。该片根据作家庆山（安妮宝贝）的同名小…</p>
+            </div>
+        </li>
+        <li><span>5</span><span>我不是潘金莲</span>
+            <div class="content">
+                <img src="images/film/05.jpg" alt="">
+                <p>《我不是潘金莲》是由冯小刚执导的电影， 范冰冰领衔主演，郭涛、大鹏、张嘉译、于和伟、张译、赵立新等联合主演，该片于2016年9月8日在多伦多电影节上映。影片根据刘震云同名小说改编，讲…</p>
+            </div>
+        </li>
+        <li><span>6</span><span>湄公河行动</span>
+            <div class="content">
+                <img src="images/film/06.jpg" alt="">
+                <p>《湄公河行动》是由博纳影业集团出品、华夏电影发行有限责任公司、蓝色星空影业有限公司等联合出品的警匪动作电影，由林超贤编剧并执导，张涵予、彭于晏、冯文娟等主演。该片根据“10·5…</p>
+            </div>
+        </li>
+        <li><span>7</span><span>微微一笑很倾城</span>
+            <div class="content">
+                <img src="images/film/07.jpg" alt="">
+                <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+            </div>
+        </li>
+        <li><span>8</span><span>奇异博士</span>
+            <div class="content">
+                <img src="images/film/08.jpg" alt="">
+                <p>奇异博士》是由美国漫威影业制作，迪士尼影业公司出品的奇幻动作电影，由斯科特·德瑞克森执导,，本尼迪克特·康伯巴奇、切瓦特·埃加福特、瑞秋·麦克亚当斯、蒂尔达·斯文顿联合主演。该…</p>
+            </div>
+        </li>
+        <li><span>9</span><span>28岁未成年</span>
+            <div class="content">
+                <img src="images/film/09.jpg" alt="">
+                <p>《《28岁未成年》是由乐视影业（北京）有限公司出品的爱情片，由张末执导，倪妮、霍建华、马苏、王大陆联合主演。电影改编自black.f同名小说，讲述了28岁的凉夏身陷糟糕的感情生活不能自…</p>
+            </div>
+        </li>
+        <li><span>10</span><span>驴得水</span>
+            <div class="content">
+                <img src="images/film/10.jpg" alt="">
+                <p>《驴得水》是周申、刘露编剧导演的喜剧电影，由任素汐、大力、刘帅良等主演，于2016年10月28日在中国大陆上映。该片改编自周申、刘露的同名话剧作品，讲述了民国时期一所偏远学校中，…</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //当鼠标悬停在某个li上时给其绑定cur,其余的删除cur这个类,排他思想
+        $('li').hover(function(){
+            //使用链式操作
+            $(this).addClass('cur').siblings().removeClass('cur');
+        })
+    })
+</script>
+
+</body>
+</html>

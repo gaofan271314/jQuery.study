@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+</head>
+<body>
+<button>$('a[href]')获取具有href属性的 DOM 对象</button><br>
+<button>$("a[href!='www.baidu.com']")获取属性值不为www.baidu.com对象</button><br>
+<button>$('a[href*="520"]')获取属性值包涵520的对象</button><br>
+<button>$('a[href*="www"][title*="是"]')获取属性值包涵www的对象并且title包含"是"的对象</button>
+<br><br><br>
+
+<div class="divItem">
+    <a href="www.baidu.com" title="谁啊？">www.baidu.com百度</a><br/>
+    <a href="www.520it.com" title="我是title的内容">www.520it.com小码哥</a><br/>
+    <a href="sina.com.cn">sina.com.cn新浪</a><br/>
+    <a>我没有href</a>
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //获取所有具有href的标签
+        $('button:eq(0)').click(function(){
+            $('a[href]').css('background','red');
+        });
+        //获取所有href !='www.baidu.com'的标签
+        $('button:eq(1)').click(function(){
+            $('a[href != "www.baidu.com"]').css('background','red');
+        });
+        //获取所有属性值包括520的标签
+        $('button:eq(2)').click(function(){
+            $('a[href *= "520"]').css('background','red');
+        });
+        //获取所有属性值包括520,且title属性值包含"是"的标签
+        $('button:eq(3)').click(function(){
+            $('a[href *= "520"][title *="是"]').css('background','red');
+        });
+    })
+</script>
+</body>
+</html>

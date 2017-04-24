@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+
+</head>
+<body>
+<button>开始动画</button>
+<button>在原始值基础上进行累计</button>
+<button>使用系统固定值</button>
+
+
+<div></div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        $('button:eq(0)').click(function(){
+            /*只要设置属性变化,那么这个标签在变化过程中就有动画*/
+            $('div').animate({width:200,height:200},1000,function(){
+                alert('动画完成');
+            });
+        });
+        /*累加*/
+        $('button:eq(1)').click(function(){
+            $('div').animate({width:'+=100',height:'+=100'},1000,function(){
+                alert('动画完成');
+            });
+        });
+        /*使用系统固定值*/
+        $('button:eq(2)').click(function(){
+            $('div').animate({width:'toggle'});
+        });
+
+
+        /*动画的原理
+        * 后添加的动画会自动放在动画队列中,队列是先进先出原则,动画以此进行(例如排队打饭).
+        *
+        * 对于停止动画stop()来说,
+        * 1.如果传入true值,会把后面的动画直接停止;
+        * 2.传入false值,会结束当前动画,后面的动画还会执行;
+        * 3.传入false,true值,当前动画立即执行完成,后面的动画还会执行
+        * 4.传入true,true值时,当前动画立即执行完成,后面的动画不会执行
+        * */
+    })
+</script>
+</body>
+</html>

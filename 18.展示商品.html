@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示商品</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+            list-style: none;
+        }
+        .box{
+            width:500px;
+            margin:50px auto;
+            border:1px solid #000;
+
+        }
+        .box ul{
+            overflow: hidden;
+        }
+
+        .box ul li{
+            width: 150px;
+            line-height: 30px;
+            margin:5px;
+            height: 30px;
+            float: left;
+
+        }
+        .box p{
+            width: 100px;
+            height: 30px;
+            margin:0 auto;
+            border:1px solid #000;
+            padding:3px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>佳能</li>
+        <li>索尼</li>
+        <li>三星</li>
+        <li>尼康</li>
+        <li>松下</li>
+        <li>卡西欧</li>
+        <li>富士</li>
+        <li>可达</li>
+        <li>宾得</li>
+        <li>理光</li>
+        <li>奥林巴斯</li>
+        <li>明基</li>
+        <li>显示其它品牌</li>
+    </ul>
+    <p>显示所有内容</p>
+</div>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        /*先让中间部分隐藏
+        * 如果使用多次筛选选择器,第二个选择器会从第一个选择器筛选后的元素开始算起*/
+//        $('li:gt(2):lt(9)').hide();
+        $('li:gt(2):not(:last)').hide();
+        /*点击p标签,展开隐藏内容*/
+        $('p').click(function(){
+            $('li:gt(2):not(:last)').slideToggle();
+            if($(this).text() == '显示所有内容'){
+                $(this).text('隐藏所有内容');
+            }else{
+                $(this).text('显示所有内容');
+            }
+        })
+    })
+</script>
+</body>
+</html>

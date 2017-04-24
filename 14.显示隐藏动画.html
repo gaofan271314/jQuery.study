@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示隐藏动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>    
+</head>
+<body>
+<button>隐藏</button>
+<button>显示</button>
+<button>切换动画</button>
+<div></div>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        $('button:eq(0)').click(function(){
+            //让对应的盒子隐藏,且有动画,如果只传入一个参数,那是动画执行时间(毫秒),如果传入两个参数,第二个参数就是动画完成后要做的事情,就是回调
+            $('div').hide(2000,function(){
+                alert('finish');
+            });
+        });
+        //让对应的盒子显示
+        $('button:eq(1)').click(function(){
+            $('div').show(2000,function(){
+                alert('finish');
+            });
+        });
+        //让对应的盒子切换显示模式
+        $('button:eq(2)').click(function(){
+            $('div').toggle(2000,function(){
+                alert('finish');
+            });
+        });
+    })
+</script>
+</body>
+</html>

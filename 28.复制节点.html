@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制节点</title>
+</head>
+<body>
+<button>复制</button>
+<ul>
+    <li>1</li>
+    <li class="liItem">2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        /*clone()复制节点,如果没有传入参数,就只克隆内容,但是不克隆事件,叫做浅克隆;如果传入参数true,那p 么会克隆内容和事件,叫做深克隆*/
+        $('button').click(function(){
+            var cloneLi= $('.liItem').clone(true);
+            $('ul').prepend(cloneLi);
+        });
+        /*如果浅克隆的节点要在事件点击中起作用,一般只有放在事件作用域中,后面会有代理模式*/
+        $('li').click(function(){
+            alert('that`s good');
+        })
+    })
+</script>
+</body>
+</html>

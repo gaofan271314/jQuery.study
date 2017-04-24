@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态窗口</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            position: fixed;
+        }
+        .login{
+            width: 522px;
+            height: 290px;
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            margin-left: -261px;
+            background: url("images/login.png");
+        }
+        span{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<a >登录</a>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        /*点击a标签,创建对应的div*/
+        $('a').click(function(){
+            var tag= '<div class="box">'+
+                    '<div class="login">'+
+                    '<span></span>'+
+                    '</div>'+
+                    '</div>';
+            $('body').prepend(tag);//用浮动流来解释
+            /*点击对应的span让box消失*/
+//            $('span').click(function(){
+//                $('.box').remove();
+//            })
+            /*开发中,为了符合低耦合思想,让其更加灵活,一般都是放在事件作用域外面,采用代理方式即可*/
+        });
+        /*如果要给新添加的节点添加事件,我们一般通过代理方式(委托方式/监听者方式)
+        * 代理方式需要两个对象,一个是代理者,一个是被代理者
+        * 当代理者听到被代理者对应的点击事件后就会执行事件指令
+        * 这里被代理者是span,代理者是body(一般都是body,也可以是父标签)
+        *形式:代理对象.on(事件属性,被代理对象,事件指令)
+        * */
+        $('body').on('click','span', function(){
+            alert(this);//this指的是span,body只是代理(中介)
+            $('.box').remove();
+        })
+    })
+</script>
+</body>
+</html>

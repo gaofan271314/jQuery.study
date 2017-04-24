@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style-type: none;
+        }
+        .box{
+            width: 320px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .first>li{
+            line-height: 35px;
+            text-indent: 10px;
+        }
+        .first li span{
+            background: url("images/arrow_right.png") no-repeat;
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin-top: 10px;
+        }
+        .sec{
+            display: none;
+            background: #666;
+        }
+        .sec li{
+            color: white;
+            border-bottom: 1px solid #fff;
+        }
+        .first li .sec .cur{
+            background: orangered;
+        }
+        .first li .curS{
+            transform: rotate(90deg);
+            transition:  0.2s;
+        }
+        .sec li:hover{
+            background: orangered;
+        }
+    </style>    
+</head>
+<body>
+<div class="box">
+    <ul class='first'>
+        <li><span></span>第一级菜单1
+            <ul class='sec'>
+                <li>第二级菜单1</li>
+                <li>第二级菜单2</li>
+                <li>第二级菜单3</li>
+                <li>第二级菜单4</li>
+                <li>第二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>第一级菜单2
+            <ul class='sec'>
+                <li>第二级菜单1</li>
+                <li>第二级菜单2</li>
+                <li>第二级菜单3</li>
+                <li>第二级菜单4</li>
+                <li>第二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>第一级菜单3
+            <ul class='sec'>
+                <li>第二级菜单1</li>
+                <li>第二级菜单2</li>
+                <li>第二级菜单3</li>
+                <li>第二级菜单4</li>
+                <li>第二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>第一级菜单4
+            <ul class='sec'>
+                <li>第二级菜单1</li>
+                <li>第二级菜单2</li>
+                <li>第二级菜单3</li>
+                <li>第二级菜单4</li>
+                <li>第二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>第一级菜单5
+            <ul class='sec'>
+                <li>第二级菜单1</li>
+                <li>第二级菜单2</li>
+                <li>第二级菜单3</li>
+                <li>第二级菜单4</li>
+                <li>第二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>第一级菜单6
+            <ul class='sec'>
+                <li>第二级菜单1</li>
+                <li>第二级菜单2</li>
+                <li>第二级菜单3</li>
+                <li>第二级菜单4</li>
+                <li>第二级菜单5</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        $('.first>li').click(function(){
+            /*先返回父节点,排他找其余的兄弟节点的儿子节点设置
+            *end()方法表示返回父节点的对象*/
+            $(this).children('.sec').slideToggle(500).end().siblings().children('.sec').slideUp(500);
+            /*给对应的span设置类名,方便排他*/
+            $(this).children('span').toggleClass('curS').end().siblings().children('span').removeClass('curS');
+            //直接在css中给li设置hover,可以简化代码
+//            $('.sec li').mouseenter(function(){
+//                $(this).addClass('cur').siblings().removeClass('cur');
+//            });
+        });
+    })
+</script>
+
+</body>
+</html>

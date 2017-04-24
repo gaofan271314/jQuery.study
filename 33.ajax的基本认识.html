@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax的基本认识</title>
+</head>
+<body>
+<button>get</button>
+<button>post</button>
+<form action="" id="main">
+    <input type="text" name="name"><br>
+    <input type="password" name="pwd"><br>
+    <input type="submit">
+</form>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        $('button:eq(0)').click(function(){
+            /*点击按钮,发送get请求*/
+            $.ajax({
+                /*发送请求,有五部分组成,可以吧参数和参数类型去掉
+                * 1.请求的类型,大写*/
+                type:'GET',
+                /*2.请求的地址,也叫接口*/
+                url:'https://www.baidu.com',
+                /*3.请求的参数*/
+                data:{name:$('input:first').val(),
+                password:$('input:eq(1)').val()},
+                /*4.参数类型*/
+                dataType:'jsonp',
+                /*5.发送请求后返回的结果,结果一般用匿名函数,分为三部分,主要关心数据即可
+                * res:返回的数据
+                * status:一种状态
+                * xhr:和数据相关的东西*/
+                success:function(res,status,xhr){
+
+                }
+            })
+        });
+
+        /*表单序列化:如果发现请求的参数特别多,写起来很麻烦,我们就可以使用表单序列化,就是通过表单吧参数直接转化,要求表单中的所有提交的input的都要有一个name属性,用来转化*/
+        $('button:eq(1)').click(function(){
+            /*点击按钮,发送post请求*/
+            $.ajax({
+                /*发送请求,有五部分组成,可以吧参数和参数类型去掉
+                 * 1.请求的类型,大写*/
+                type:'POST',
+                /*2.请求的地址,也叫接口*/
+                url:'https://www.baidu.com',
+                /*3.请求的参数:表单序列化*/
+                data:$('#main').serialize(),
+                /*4.参数类型*/
+                dataType:'jsonp',
+                /*5.发送请求后返回的结果,结果一般用匿名函数,分为三部分,主要关心数据即可
+                 * res:返回的数据
+                 * status:一种状态
+                 * xhr:和数据相关的东西*/
+                success:function(res,status,xhr){
+
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

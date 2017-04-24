@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象和冒泡</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .box2 {
+            width: 50px;
+            height: 50px;
+            background: blue;
+        }
+    </style>
+
+</head>
+<body>
+<button>点击</button>
+
+<div class="box1">
+    <div class="box2"></div>
+</div>
+<br><br><br><br><br><br><br>
+
+<a href="27.微博发布.html">跳转</a>
+<form action="24.无限轮播图.html">
+
+    <input type="text">
+    <input type="password">
+    <input type="submit" value="提交">
+</form>
+
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        /*里面传入的第一个参数是事件属性,第二个是事件的附加信息,一般是一个字典(对象),事件指令*/
+        $('button').on('click',{name:'张三'},function(event) {
+            console.log(event.target);//触发事件源
+            console.log(event.data.name);
+        });
+
+        /*事件冒泡*/
+        $('.box1').on('click',function(){
+            alert('say byeBye')
+        });
+        $('.box2').on('click',function(event){
+            alert('say hello');
+            event.stopPropagation();
+            /*阻止冒泡还可以通过最后返回false*/
+//            return false;
+        });
+
+
+        /*事件的默认行为:当对一些标签做出操作时,会触发一些默认事件
+        * 例如:点击a标签会跳转,点击提交表单,会跳转
+        * 如果此时,不想让默认事件触发,要通过事件对象来实现*/
+        $('a').click(function(event){
+            event.preventDefault();
+            alert('hello to myself');
+        });
+        $('input:last').click(function(event){
+            event.preventDefault();
+            alert('interesting');
+        });
+
+    })
+</script>
+</body>
+</html>

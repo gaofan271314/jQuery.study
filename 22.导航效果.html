@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+            padding-top: 50px;
+        }
+
+        .box ul li{
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            float: left;
+            text-align: center;
+            overflow: hidden;
+        }
+        .box ul li span{
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            /*background: url("images/bg.png") 0 -24px;*/
+            position: relative;
+        }
+    </style>    
+</head>
+<body>
+<div class="box">
+
+    <ul>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>淘宝</p></li>
+        <li><span></span><p>新浪</p></li>
+        <li><span></span><p>网易</p></li>
+        <li><span></span><p>搜狐</p></li>
+        <li><span></span><p>腾讯</p></li>
+        <li><span></span><p>优酷</p></li>
+        <li><span></span><p>京东</p></li>
+    </ul>
+    
+</div>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        /*遍历li设置图片*/
+        $('li').each(function(index,ele){
+            var bgUrl= 'url("images/bg.png") 0 -'+ index * 24+'px';
+            /*给对应li中的span设置图片,通过find方法来找到对应的标签*/
+            $(ele).find('span').css({background:bgUrl});
+        });
+        /*当鼠标移入li时,其对应的span做向上动画
+        * 在动画完成后,回到原来的位置下面,并且透明度为0
+        * 设置完成后,让动画回到原来的位置,且设置透明度为1
+        * */
+        $('li').mouseenter(function(){
+            $(this).find('span').stop().animate({top:-20},function(){
+                //这两个this表示的不是同一个标签,在不同的作用域,一个表示li,一个表示span
+                $(this).css({top:20,opacity:0}).stop().animate({top:0,opacity:1});
+            });
+        });
+    })
+</script>
+
+</body>
+</html>

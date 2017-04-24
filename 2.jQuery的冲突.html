@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery的冲突</title>
+</head>
+<body>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    //代码和jQuery的原生符号冲突时,我们需要在使用js之前调用$.noConflict()方法
+    //使用一个变量来记录$,以后jQuery中使用$都用这个变量
+    var jq= $.noConflict();
+    var $= 20;
+    jq(function(){
+        alert($);
+    })
+</script>
+</body>
+</html>

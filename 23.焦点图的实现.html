@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>焦点图的实现</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+        .box{
+            width: 650px;
+            height: 265px;
+            border: 5px solid #000;
+            margin: 100px auto;
+            position: relative;
+        }
+        .box ul{
+            position: relative;
+            z-index: 1;
+        }
+        .box ul li{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .box ul li:first-child{
+            z-index: 1;
+        }
+        .box ul li img{
+            width: 650px;
+            height: 265px;
+        }
+        .box ol{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+        .box ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #ccc;
+            margin-right: 2px;
+            text-align: center;
+        }
+        .box ol .cur{
+            background: #666;
+            color: orangered;
+            border: 1px solid orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+
+    <ol>
+        <li class='cur'>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+
+    <ul>
+        <li><img src="images/01.png" alt=""></li>
+        <li><img src="images/02.png" alt=""></li>
+        <li><img src="images/03.png" alt=""></li>
+        <li><img src="images/04.png" alt=""></li>
+    </ul>
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        var z_index= 1;//用来记录每次的zIndex的值
+        var index;
+        $('ol li').mouseenter(function(){
+            $(this).addClass('cur').siblings().removeClass('cur');
+            index= $(this).index();
+            z_index ++;
+            $('ul li').eq(index).css({zIndex:z_index}).hide().stop().fadeIn(300);//eq()为什么不能放里面???有两个的时候最好放外面
+        })
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>筛选选择器</title>
+</head>
+<body>
+<button>$('li:first')选择第一个li</button><br>
+<button>$('li:last')选择最后一个li</button><br>
+<button>$('li:not(:last)')选择所有li排除最后一个</button><br>
+<button>$('li:not(:eq(1))')选择所有li排除第二个</button><br>
+<button>$('li:even')选择所有索引值为偶数个li</button><br>
+<button>$('li:odd')选择所有索引值为奇数个li</button><br>
+<button>$('li:gt(5)')选择大于第5个的li</button><br>
+<button>$('li:lt(5)')选择小于第5个的li</button><br>
+<button>$(':header')选择所有的标题</button><br>
+
+<h1>我是h1</h1>
+<h2>我是h2</h2>
+<h3>我是h3</h3>
+<h4>我是h4</h4>
+
+<ul>
+    <li>这是一个li-1</li>
+    <li>这是一个li-2</li>
+    <li>这是一个li-3</li>
+    <li>这是一个li-4</li>
+    <li>这是一个li-5</li>
+    <li>这是一个li-6</li>
+    <li>这是一个li-7</li>
+    <li>这是一个li-8</li>
+    <li>这是一个li-9</li>
+</ul>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //给第一个li设置属性
+        $('button:eq(0)').click(function(){
+            $('li:first').css('background','red');
+        });
+        //最后一个li
+        $('button:eq(1)').click(function(){
+            $('li:last').css('background','red');
+        });
+        //除了最后一个li
+        $('button:eq(2)').click(function(){
+            $('li:not(:last)').css('background','red');
+        });
+        //除了选中的那个
+        $('button:eq(3)').click(function(){
+            $('li:not(:eq(1))').css('background','red');
+        });
+        //选中  索引值 为偶数even
+        $('button:eq(4)').click(function(){
+            $('li:even').css('background','red');
+        });
+        //选中  索引值  奇数的 odd
+        $('button:eq(5)').click(function(){
+            $('li:odd').css('background','red');
+        });
+        //选中大于第5个li的
+        $('button:eq(6)').click(function(){
+            $('li:gt(5)').css('background','red');
+        });
+        //选中小于5的
+        $('button:eq(7)').click(function(){
+            $('li:lt(5)').css('background','red');
+        });
+        //选中所有的标题
+        $('button:eq(8)').click(function(){
+            $(':header').css('background','red');
+        });
+    })
+</script>
+</body>
+</html>

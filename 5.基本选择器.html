@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本选择器</title>
+</head>
+<body>
+<button>$('#box')id选择器</button>
+<button>$('.left').class选择器</button>
+<button>$('p')标签选择器</button>
+<button>$('p,h1')并集选择器</button>
+
+<p>我是一个段落</p>
+<p>我是一个段落</p>
+<p>我是一个段落</p>
+
+<div class="left">我是.left</div>
+<div id="box">我是id的dvi</div>
+
+<h1>标题1标签</h1>
+<h2>标题2标签</h2>
+<h3>标题3标签</h3>
+
+<ul class="ulItem">
+    <li>列表项</li>
+    <li>列表项
+        <ul>
+            <li>列表项</li>
+            <li>列表项</li>
+            <li>列表项</li>
+        </ul>
+    </li>
+    <li>列表项</li>
+</ul>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //点击第一个按钮通过id选择器
+        $('button:eq(0)').click(function(){
+            $('#box').css('background','red');
+        });
+        //类选择器
+        $('button:eq(1)').click(function(){
+            $('.left').css('background','red');
+        });
+        //标签选择器
+        $('button:eq(2)').click(function(){
+            $('p').css('background','red');
+        });
+        //并集选择器
+        $('button:eq(3)').click(function(){
+            $('p,h1').css('background','red');
+        })
+    })
+</script>
+</body>
+</html>

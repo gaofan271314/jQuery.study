@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出动画</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border:none;
+        }
+        .box{
+            width:100px;
+            height: 100px;
+            background: red;
+            display: none;
+        }
+
+        .ad{
+            position: fixed;
+            width: 300px;
+            height: 194px;
+            right: 0;
+            bottom: 0;
+            background: url("images/ad-pic.png") no-repeat;
+            display: none;
+        }
+        .close{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+
+</head>
+<body>
+<button>淡入</button>
+<button>淡出</button>
+<button>淡入到</button>
+<div class="box"></div>
+
+<div class="ad">
+    <span class='close'></span>
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        $('button:eq(0)').click(function(){
+            $('.box').fadeIn(3000,function(){
+                alert('淡入完成');
+            });
+        });
+        $('button:eq(1)').click(function(){
+            $('.box').fadeOut(3000,function(){
+                alert('淡出完成');
+            });
+        });
+        $('button:eq(2)').click(function(){
+            /*对于淡入到动画,第一参数表示动画时间,第二个表示透明度*/
+            $('.box').fadeTo(3000,0.3);
+        });
+
+
+
+        /*弹出广告*/
+        $('.ad').slideDown().fadeTo(500,0).fadeTo(500,1).delay(60000).slideUp();
+        /*delay()间隔一段时间,让其收起,如果想要点击立即收起,必须要在动画前加上stop()方法,让上一次动画停止*/
+        $('.close').click(function(){
+            $(this).parent().stop().slideUp();
+        })
+    })
+</script>
+</body>
+</html>

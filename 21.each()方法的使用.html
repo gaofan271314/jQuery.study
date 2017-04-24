@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each()方法的使用</title>
+</head>
+<body>
+<span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        var myArray= ['张三','李四','123'];
+        /*遍历数组*/
+        $.each(myArray,function(index,item){
+            console.log(index,item);
+        });
+
+        var obj={name:'张三',age:18,sex:'男'};
+        /*遍历对象*/
+        $.each(obj,function(key,value){
+            console.log(key,value);
+        });
+
+        /*遍历节点:可以让节点直接调用*/
+        $('span').each(function(index,ele){
+            var content= $(ele).text();
+            console.log(index,content);
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动触发事件和自定义事件</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box">
+
+    <button>点击按钮</button>
+</div>
+
+<form action="27.微博发布.html">
+    <input type="text">
+    <input type="password">
+    <input type="submit" value="提交">
+</form>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        /*trigger表示自动触发某个事件,但是trigger会触发标签的默认事件,而且会导致冒泡现象;
+        * triggerHandle不会触发默认事件,且可以阻止冒泡现象*/
+        $('input:last').click(function(){
+            alert('hello to myself');
+        });
+//        $('input:last').trigger('click');
+        $('input:last').triggerHandler('click');
+
+//        $('button').click(function () {
+//            alert('我是按钮');
+//        });
+//        $('.box').click(function () {
+//            alert('我是盒子');
+//        });
+//        $('button').trigger('click');
+//        $('button').triggerHandler('click');
+
+
+        /*自定义事件:点击按钮不会触发,因为系统没这个属性,需要自动触发事件*/
+        $('button').on('myClick',function(){
+            alert('give me five');
+        });
+        $('button').triggerHandler('myClick');
+        /*事件命名空间:当触发统一标签的同一个事件时,我们需要区分不同的事件指令,就需要命名空间,标识符*/
+//        $('button').on('myClick.abc',function(){
+//            alert('恭喜你,没迟到')
+//        });
+//        $('button').on('myClick.cba',function(){
+//            alert('警告你,迟到了')
+//        });
+        /*取消事件*/
+//        $('button').off('myClick');
+    })
+</script>
+
+</body>
+</html>

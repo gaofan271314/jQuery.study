@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过jQuery添加类</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .class1{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .class2{
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<button>点击添加一个类</button>
+<button>点击添加多个类</button>
+<button>点击移除类</button>
+<button>点击切换类</button>
+<button>点击添加html</button>
+<div></div>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //获取第一个按钮添加点击事件,然后给div设置类名
+        $('button').eq(0).click(function(){
+            $('div').addClass('class1');
+        });
+
+        //当绑定多个类时,中间用空格隔开即可
+        $('button').eq(1).click(function(){
+            $('div').addClass('class2 class1');
+        });//如果发生层叠关系,那么会根据样式设置css中的后面会把前面的层叠掉
+
+        //移除类
+        $('button').eq(2).click(function(){
+            $('div').removeClass('class2');
+        });
+
+        //切换类,如果当前绑定的有这个类,则移除他,如果没有这个类,则绑定他
+        $('button').eq(3).click(function(){
+            $('div').toggleClass('class2 class1');
+        });
+
+
+        //点击按钮,添加html,就是给div设置值(纯文本的话html改成text)
+        //在jQuery中,调用一个方法,如果给方法传入值,则是设置.如果没传入,则是取出值
+        $('button').eq(4).click(function(){
+            var content= '<h1>我是主题</h1>';
+            $('div').html(content);
+        })
+    })
+</script>
+</body>
+</html>

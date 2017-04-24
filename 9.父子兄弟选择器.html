@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子兄弟选择器</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+
+        .box{
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+        .ulItem{
+            background: green;
+        }
+
+        .liItem {
+            background: red;
+        }
+
+    </style>
+
+</head>
+<body>
+<button>选择li的父节点</button>
+<button>选择box1的所有子元素</button>
+<button>选择liItem的所有兄弟元素</button>
+
+<div class="box">
+
+    <ul class='ulItem'>
+        <li>我是一个li1</li>
+        <li>我是一个li2</li>
+        <li class='liItem'>我是一个li3</li>
+        <li>我是一个li4</li>
+        <li>我是一个li5</li>
+        <li>我是一个li6</li>
+        <li>我是一个li7</li>
+        <li>我是一个li8</li>
+        <li>我是一个li9</li>
+        <li>我是一个li10</li>
+    </ul>
+
+</div>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        //选择li的父节点
+        $('button:eq(0)').click(function(){
+            $('li').parent().css('background','pink');
+        });
+        //选择box的所有子节点
+        $('button:eq(1)').click(function(){
+            $('box').children().css('background','yellow');
+        });
+        //获取liItem所有兄弟标签
+        $('button:eq(2)').click(function(){
+            $('.liItem').siblings().css('background','purple');
+        });
+    })
+</script>
+</body>
+</html>

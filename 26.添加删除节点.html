@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加删除节点</title>
+</head>
+<body>
+<button>添加</button>
+<button>删除</button>
+<ul>
+    <li>1</li>
+    <li class="liItem">2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $(function(){
+        $('button:eq(0)').click(function(){
+            var tag= $('<li>我是新创建的li</li>');
+            /*添加到子节点的最后一个节点*/
+//            $('ul').append(tag);
+            /*添加到子节点的第一个节点*/
+            $('ul').prepend(tag);
+            /*添加到某个固定节点之后*/
+//            tag.appendTo($('.liItem'));
+//            tag.insertAfter($('.liItem'));
+            /*添加到某个固定节点之前*/
+//            tag.prependTo($('.liItem'));
+//            tag.insertBefore($('.liItem'));
+        });
+        $('button:eq(1)').click(function(){
+            /*删除指定节点*/
+//            $('.liItem').remove();
+            /*删除指定节点的内容*/
+            $('.liItem').empty();
+        })
+    })
+</script>
+</body>
+</html>
